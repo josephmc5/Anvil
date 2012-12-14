@@ -82,3 +82,10 @@ class Anvil(object):
                         repo_indices.add(repo.index)
                         repos.append(repo)
         return repos
+
+    @memoized
+    def check_repo(self, check_project):
+        repos = self.get_repos()
+        for repo in repos:
+            if repo.name == check_project:
+                return True
